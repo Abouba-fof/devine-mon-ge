@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Devine mon age</title>
+<style>
+  body { font-family: Arial; text-align: center; background: linear-gradient(#6a11cb, #2575fc); color: white; padding-top: 50px; }
+  input { font-size: 18px; padding: 5px; }
+  button { font-size: 18px; padding: 10px; background: #ff6f61; border: none; color: white; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #ff856f; }
+  #result { font-size: 20px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<h1>Devine mon age</h1>
+<p>Entre mon age entre 1 ans et 100 ans :</p>
+<input type="number" id="guess">
+<button onclick="checkNumber()">Vérifier ✅</button>
+<div id="result"></div>
+
+<script>
+let nombreSecret = 42;
+let essais = 0;
+
+function checkNumber() {
+    let guess = Number(document.getElementById("guess").value);
+    essais++;
+    let result = "";
+    if (guess < nombreSecret) result = "🔼 Trop petit !";
+    else if (guess > nombreSecret) result = "🔽 Trop grand !";
+    else result = `🎉 Bravo ! Tu as trouvé en ${essais} essais !`;
+    document.getElementById("result").textContent = result;
+}
+</script>
+</body>
+</html>
